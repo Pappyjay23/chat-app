@@ -5,6 +5,24 @@
 	font-family: "Poppins", sans-serif;
 }
 
+@mixin mobile {
+	@media screen and (min-width: 320px) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media screen and (min-width: 768px) {
+		@content;
+	}
+}
+
+@mixin laptop {
+	@media screen and (min-width: 1024px) {
+		@content;
+	}
+}
+
 .formContainer {
 	background-color: #a7bcff;
 	height: 100vh;
@@ -14,22 +32,37 @@
 
 	.formWrapper {
 		background-color: white;
-		padding: 20px 60px;
+		padding: 20px 30px;
 		border-radius: 10px;
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
 		align-items: center;
+		width: 90%;
+		margin: 0 auto;
+
+		@include tablet{
+			padding: 20px 60px;
+			width: fit-content;
+		}
 
 		.logo {
 			color: #5d5b8d;
 			font-weight: bold;
-			font-size: 24px;
+			font-size: 20px;
+
+			@include tablet{
+				font-size: 24px;
+			}
 		}
 
 		.title {
 			color: #5d5b8d;
-			font-size: 16px;
+			font-size: 12px;
+			
+			@include tablet{
+				font-size: 16px;
+			}
 		}
 
 		form {
@@ -45,9 +78,14 @@
 				background: transparent;
 				width: 250px;
 				color: #5d5b8d;
-
+				font-size: 70%;
+				
 				&::placeholder {
 					color: rgb(175, 175, 175);
+				}
+				
+				@include tablet{
+					font-size: 80%;
 				}
 			}
 
@@ -72,13 +110,23 @@
 				font-weight: 500;
 				border: none;
 				cursor: pointer;
+				border-radius: 5px;
+				font-size: 75%;
+				
+				@include tablet{
+					font-size: 90%;
+				}
 			}
 		}
 
 		p {
 			color: #5d5b8d;
-			font-size: 12px;
+			font-size: 9px;
 			margin-top: 10px;
+
+			@include tablet{
+				font-size: 12px;
+			}
 		}
 	}
 }
