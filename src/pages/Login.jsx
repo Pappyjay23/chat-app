@@ -7,8 +7,8 @@ const Login = () => {
 				<span className='logo'>Chatify</span>
 				<span className='title'>Login</span>
 				<form>
-					<input type='email' placeholder='email' />
-					<input type='password' placeholder='password' />
+					<input type='email' placeholder='Email' />
+					<input type='password' placeholder='Password' />
 					<button>Sign In</button>
 				</form>
 				<p>You do not have an account? Register</p>
