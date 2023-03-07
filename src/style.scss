@@ -24,6 +24,12 @@
 }
 
 @mixin laptopLg {
+	@media screen and (min-width: 1440px) {
+		@content;
+	}
+}
+
+@mixin laptopXl {
 	@media screen and (min-width: 2560px) {
 		@content;
 	}
@@ -161,14 +167,18 @@
 		overflow: hidden;
 		position: relative;
 
-		@include laptopLg() {
+		@include laptopXl() {
 			width: 75%;
 			height: 90%;
 		}
 
 		.sidebar {
-			flex: .8;
+			flex: 1;
 			background-color: #3e3c61;
+
+			@include laptop() {
+				flex: 0.8;
+			}
 
 			.navbar {
 				display: flex;
@@ -236,6 +246,25 @@
 				}
 			}
 
+			.chatsContainer {
+				overflow-y: scroll;
+				height: calc(100% - 152px);
+
+				&::-webkit-scrollbar {
+					width: 4px;
+					height: 5px;
+				}
+
+				&::-webkit-scrollbar-track {
+					background: transparent;
+				}
+
+				&::-webkit-scrollbar-thumb {
+					border-radius: 100vh;
+					background: #7a78b7;
+				}
+			}
+
 			.userChat {
 				padding: 10px;
 				display: flex;
@@ -254,18 +283,22 @@
 					border-radius: 50%;
 					object-fit: cover;
 
-					@include laptop() {
+					@include laptopLg() {
 						width: 40px;
 						height: 40px;
 					}
 				}
 
 				.userChatInfo {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+
 					span {
 						font-size: 13px;
 						font-weight: 500;
 
-						@include laptop() {
+						@include laptopLg() {
 							font-size: 15px;
 						}
 					}
@@ -274,7 +307,7 @@
 						font-size: 10px;
 						color: lightgray;
 
-						@include laptop() {
+						@include laptopLg() {
 							font-size: 12px;
 						}
 					}
@@ -336,11 +369,11 @@
 						}
 					}
 
-					.topUserImage{
+					.topUserImage {
 						display: flex;
 						align-items: center;
 
-						img{
+						img {
 							height: 24px;
 							width: 24px;
 							object-fit: cover;
@@ -425,10 +458,12 @@
 							width: fit-content;
 							max-width: 100%;
 							font-size: 10px;
-							
+
 							@include laptop() {
-								font-size: 12px;
 								max-width: 70%;
+							}
+							@include laptopLg() {
+								font-size: 12px;
 							}
 						}
 
@@ -467,6 +502,11 @@
 					background-color: transparent;
 					color: #2f2d52;
 					width: 100%;
+					font-size: 70%;
+
+					@include laptopLg() {
+						font-size: 80%;
+					}
 
 					&::placeholder {
 						color: #dbdbdb;

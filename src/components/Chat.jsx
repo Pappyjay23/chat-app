@@ -10,7 +10,7 @@ const Chat = () => {
 	const { showChat, setShowChat } = ChatContextUse();
 
 	return (
-		<div className={`chat ${showChat && "showChat"}`}>
+		<div className={`chat ${showChat ? "showChat" : ""}`}>
 			<div className='chatInfo'>
 				<div className='userDetails'>
 					<span

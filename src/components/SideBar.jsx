@@ -3,12 +3,28 @@ import Navbar from "../components/Navbar";
 import Search from "./Search";
 import Chats from "./Chats";
 
-const 	SideBar = () => {
+const SideBar = () => {
 	return (
 		<div className='sidebar'>
 			<Navbar />
 			<Search />
-			<Chats />
+			<div className='chatsContainer'>
+				<Chats />
+				<Chats />
+				<Chats />
+				<Chats />
+				<Chats />
+				<Chats />
+				<Chats />
+				<Chats />
+				<Chats />
+				<Chats />
+				<Chats />
+				<Chats />
+				<Chats />
+				<Chats />
+				<Chats />
+			</div>
 		</div>
 	);
 };

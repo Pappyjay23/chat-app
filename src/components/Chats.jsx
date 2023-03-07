@@ -12,7 +12,12 @@ const Chats = () => {
 				/>
 				<div className='userChatInfo'>
 					<span>Jane</span>
-					<p>Hello</p>
+					<p>
+						{`Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Perferendis, sint, eius eaque saepe temporibus exercitationem quis
+						illo autem a aliquid voluptas, unde debitis architecto doloremque
+						soluta similique harum error rerum.`.slice(0, 50) + '...'}
+					</p>
 				</div>
 			</div>
 		</div>
