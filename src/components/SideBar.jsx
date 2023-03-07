@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import Search from "./Search";
 import Chats from "./Chats";
 
-const SideBar = () => {
+const 	SideBar = () => {
 	return (
 		<div className='sidebar'>
 			<Navbar />

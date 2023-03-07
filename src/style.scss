@@ -23,6 +23,12 @@
 	}
 }
 
+@mixin laptopLg {
+	@media screen and (min-width: 2560px) {
+		@content;
+	}
+}
+
 .formContainer {
 	background-color: #a7bcff;
 	height: 100vh;
@@ -41,7 +47,7 @@
 		width: 90%;
 		margin: 0 auto;
 
-		@include tablet{
+		@include tablet {
 			padding: 20px 60px;
 			width: fit-content;
 		}
@@ -51,7 +57,7 @@
 			font-weight: bold;
 			font-size: 20px;
 
-			@include tablet{
+			@include tablet {
 				font-size: 24px;
 			}
 		}
@@ -59,8 +65,8 @@
 		.title {
 			color: #5d5b8d;
 			font-size: 12px;
-			
-			@include tablet{
+
+			@include tablet {
 				font-size: 16px;
 			}
 		}
@@ -79,12 +85,12 @@
 				width: 250px;
 				color: #5d5b8d;
 				font-size: 70%;
-				
+
 				&::placeholder {
 					color: rgb(175, 175, 175);
 				}
-				
-				@include tablet{
+
+				@include tablet {
 					font-size: 80%;
 				}
 			}
@@ -92,8 +98,8 @@
 			.imageIcon {
 				font-size: 1.5rem;
 				color: #7b96ec;
-				
-				@include tablet{
+
+				@include tablet {
 					font-size: 2rem;
 				}
 			}
@@ -105,8 +111,8 @@
 				color: #8da4f1;
 				font-size: 9px;
 				cursor: pointer;
-				
-				@include tablet{
+
+				@include tablet {
 					font-size: 12px;
 				}
 			}
@@ -120,8 +126,8 @@
 				cursor: pointer;
 				border-radius: 5px;
 				font-size: 75%;
-				
-				@include tablet{
+
+				@include tablet {
 					font-size: 90%;
 				}
 			}
@@ -132,7 +138,7 @@
 			font-size: 9px;
 			margin-top: 10px;
 
-			@include tablet{
+			@include tablet {
 				font-size: 12px;
 			}
 		}
@@ -149,13 +155,19 @@
 	.container {
 		border: 1px solid white;
 		border-radius: 10px;
-		width: 65%;
-		height: 80%;
+		width: 95%;
+		height: 95%;
 		display: flex;
 		overflow: hidden;
+		position: relative;
+
+		@include laptopLg() {
+			width: 75%;
+			height: 90%;
+		}
 
 		.sidebar {
-			flex: 1;
+			flex: .8;
 			background-color: #3e3c61;
 
 			.navbar {
@@ -211,6 +223,11 @@
 						border: none;
 						color: white;
 						outline: none;
+						font-size: 70%;
+
+						@include laptop() {
+							font-size: 90%;
+						}
 
 						&::placeholder {
 							color: lightgray;
@@ -232,28 +249,69 @@
 				}
 
 				img {
-					width: 40px;
-					height: 40px;
+					width: 35px;
+					height: 35px;
 					border-radius: 50%;
 					object-fit: cover;
+
+					@include laptop() {
+						width: 40px;
+						height: 40px;
+					}
 				}
 
 				.userChatInfo {
 					span {
-						font-size: 15px;
+						font-size: 13px;
 						font-weight: 500;
+
+						@include laptop() {
+							font-size: 15px;
+						}
 					}
 
 					p {
-						font-size: 12px;
+						font-size: 10px;
 						color: lightgray;
+
+						@include laptop() {
+							font-size: 12px;
+						}
 					}
 				}
 			}
 		}
 
 		.chat {
-			flex: 2;
+			position: absolute;
+			top: 0;
+			left: 100%;
+			opacity: 0;
+			width: 100%;
+			height: 96%;
+			transition: all 0.3s ease;
+
+			@include tablet() {
+				flex: 2;
+				position: relative;
+				width: 100%;
+				height: 100%;
+				left: 0;
+				top: 0;
+				opacity: 1;
+			}
+
+			&.showChat {
+				left: 0;
+				opacity: 1;
+			}
+
+			@include tablet {
+				position: relative;
+				top: 0;
+				left: 0;
+				flex: 2;
+			}
 
 			.chatInfo {
 				height: 50px;
@@ -263,6 +321,33 @@
 				justify-content: space-between;
 				padding: 10px;
 				color: #ddddf7;
+
+				.userDetails {
+					display: flex;
+					align-items: center;
+					gap: 5px;
+
+					.backIcon {
+						display: flex;
+						align-items: center;
+
+						@include tablet() {
+							display: none;
+						}
+					}
+
+					.topUserImage{
+						display: flex;
+						align-items: center;
+
+						img{
+							height: 24px;
+							width: 24px;
+							object-fit: cover;
+							border-radius: 50%;
+						}
+					}
+				}
 
 				.chatIcons {
 					display: flex;
@@ -277,8 +362,12 @@
 			.messages {
 				background-color: #ddddf7;
 				padding: 10px;
-				height: calc(100% - 100px);
+				height: calc(100% - 70px);
 				overflow-y: scroll;
+
+				@include tablet() {
+					height: calc(100% - 100px);
+				}
 
 				&::-webkit-scrollbar {
 					width: 6px;
@@ -303,14 +392,23 @@
 						display: flex;
 						flex-direction: column;
 						gap: 5px;
-						font-size: 10px;
+						font-size: 7px;
 						color: gray;
 
+						@include laptop() {
+							font-size: 9px;
+						}
+
 						img {
-							width: 35px;
-							height: 35px;
+							width: 30px;
+							height: 30px;
 							border-radius: 50%;
 							object-fit: cover;
+
+							@include laptop() {
+								width: 35px;
+								height: 35px;
+							}
 						}
 					}
 
@@ -325,7 +423,13 @@
 							padding: 7px 14px;
 							border-radius: 0px 10px 10px 10px;
 							width: fit-content;
-							font-size: 12px;
+							max-width: 100%;
+							font-size: 10px;
+							
+							@include laptop() {
+								font-size: 12px;
+								max-width: 70%;
+							}
 						}
 
 						img {
