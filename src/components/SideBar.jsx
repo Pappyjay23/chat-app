@@ -13,17 +13,6 @@ const SideBar = () => {
 				<Chats />
 				<Chats />
 				<Chats />
-				<Chats />
-				<Chats />
-				<Chats />
-				<Chats />
-				<Chats />
-				<Chats />
-				<Chats />
-				<Chats />
-				<Chats />
-				<Chats />
-				<Chats />
 			</div>
 		</div>
 	);
