@@ -1,16 +1,18 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { ChatContextUse } from "../context/chatContext";
+import { auth } from "../firebase";
 
 const Navbar = () => {
+	const { currentUser } = ChatContextUse();
+
 	return (
 		<div className='navbar'>
 			<span className='logo'>Chatify</span>
 			<div className='user'>
-				<img
-					src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFuJTIwaW4lMjBwb3J0cmFpdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'
-					alt='Photo'
-				/>
-				<span>John</span>
-				<button>Logout</button>
+				<img src={currentUser.photoURL} alt='Photo' />
+				<span>{currentUser.displayName}</span>
+				<button onClick={() => signOut(auth)}>Logout</button>
 			</div>
 		</div>
 	);

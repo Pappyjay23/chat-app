@@ -123,6 +123,16 @@
 				}
 			}
 
+			.fileName {
+				color: #8da4f1;
+				font-size: 9px;
+				margin-top: -15px;
+
+				@include tablet {
+					font-size: 12px;
+				}
+			}
+
 			button {
 				background-color: #7b96ec;
 				color: white;
@@ -135,6 +145,26 @@
 
 				@include tablet {
 					font-size: 90%;
+				}
+			}
+
+			.authError {
+				color: red;
+				font-size: 9px;
+				text-align: center;
+
+				@include tablet {
+					font-size: 12px;
+				}
+			}
+
+			.authSuccess {
+				color: rgb(0, 216, 0);
+				font-size: 9px;
+				text-align: center;
+
+				@include tablet {
+					font-size: 12px;
 				}
 			}
 		}
@@ -208,6 +238,7 @@
 
 					span {
 						font-size: 12px;
+						text-transform: capitalize;
 					}
 
 					button {
@@ -241,6 +272,15 @@
 
 						&::placeholder {
 							color: lightgray;
+						}
+					}
+
+					.authError {
+						color: red;
+						font-size: 9px;
+
+						@include tablet {
+							font-size: 12px;
 						}
 					}
 				}
